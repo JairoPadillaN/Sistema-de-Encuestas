@@ -32,12 +32,20 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'apPat' => ['required', 'string', 'max:255'],
+            'apMat' => ['required', 'string', 'max:255'],
+            'matricula' => ['required', 'integer', 'max:255'],
+            'fechaNac' => ['required', 'date',],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
+            'apPat'=> $request->apPat,
+            'apMat'=> $request->apMat,
+            'matricula'=> $request-> matricula,
+            'fechaNac' => $request->fechaNac,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
