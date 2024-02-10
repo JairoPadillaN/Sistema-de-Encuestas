@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('apPat');
             $table->string('apMat');
-            $table->integer('matricula');
+            $table->integer('matricula',11)->unique();
             $table->date('fechaNac');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

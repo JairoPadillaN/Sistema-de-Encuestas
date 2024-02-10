@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'apPat' => ['required', 'string', 'max:255'],
             'apMat' => ['required', 'string', 'max:255'],
-            'matricula' => ['required', 'integer', 'max:255'],
+            'matricula' => ['required', 'integer','unique:users,matricula'],
             'fechaNac' => ['required', 'date',],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
